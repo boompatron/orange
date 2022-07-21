@@ -7,5 +7,5 @@ import lombok.RequiredArgsConstructor;
 @RequiredArgsConstructor
 public class TestResponseDto {
     private final String email;
-    private final Long IdCode;
+    private final int idNum;
 }

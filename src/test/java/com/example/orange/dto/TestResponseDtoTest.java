@@ -10,11 +10,13 @@ class TestResponseDtoTest {
     @Test
     public void assertionTest(){
         String email = "test@email.com";
-        Long IdCode = 12345l;
+        int idNum = 12345;
 
-        TestResponseDto dto = new TestResponseDto(email, IdCode);
+        TestResponseDto dto = new TestResponseDto(email, idNum);
 
         assertThat(dto.getEmail()).isEqualTo(email);
-        assertThat(dto.getIdCode()).isEqualTo(IdCode);
+        assertThat(dto.getIdNum()).isEqualTo(idNum);
     }
+
+
 }

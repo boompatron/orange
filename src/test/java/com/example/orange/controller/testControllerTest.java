@@ -21,9 +21,21 @@ class testControllerTest {
     private MockMvc mockMvc;
 
     @Test
-    @DisplayName("첫 test 겸 테스트 test")
+    @DisplayName("first test & test for test")
     public void testMethod() throws Exception{
-        String thisIsTest = "this is test";
-        mockMvc.perform(get("/test")).andExpect(status().isOk()).andExpect(content().string(thisIsTest));
+        String test = "test";
+        mockMvc.perform(get("/test")).andExpect(status().isOk()).andExpect(content().string(test));
+    }
+
+    @Test
+    @DisplayName("testing json")
+    public void testDto() throws Exception{
+        String email = "test@email.com";
+        int idNum = 12345;
+
+        mockMvc.perform(get("/test/dto").param("email", email).param("idNum", String.valueOf(idNum)))
+                .andExpect(status().isOk())
+                .andExpect(jsonPath("$.email", is(email)))
+                .andExpect(jsonPath("$.idNum", is(idNum)));
     }
 }
