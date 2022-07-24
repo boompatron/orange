@@ -1,5 +1,6 @@
 package com.example.orange.entity;
 
+import com.example.orange.constant.Region;
 import com.example.orange.constant.Role;
 import lombok.Builder;
 import lombok.Getter;
@@ -27,14 +28,17 @@ public class Member extends BaseEntity {
     @Column(nullable = false)
     private Role role;
 
+    @Column(nullable = false)
+    private Region region;
     @Column
     private String picture;
 
     @Builder
-    public Member(String name, String email, String picture, Role role){
+    public Member(String name, String email, String picture, Role role, Region region){
         this.email = email;
         this.name = name;
         this.picture = picture;
         this.role = role;
+        this.region = region;
     }
 }

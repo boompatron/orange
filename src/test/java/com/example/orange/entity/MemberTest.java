@@ -1,5 +1,6 @@
 package com.example.orange.entity;
 
+import com.example.orange.constant.Region;
 import com.example.orange.constant.Role;
 import com.example.orange.repository.MemberRepository;
 import org.aspectj.lang.annotation.After;
@@ -51,6 +52,7 @@ public class MemberTest {
                         .picture(picture)
                         .email(email)
                         .role(Role.USER)
+                        .region(Region.Seoul)
                         .build()
         );
         List<Member>memberList = memberRepository.findAll();
@@ -63,7 +65,8 @@ public class MemberTest {
     @DisplayName("Audit Test")
     public void BaseTimeEntityTest(){
         LocalDateTime now = LocalDateTime.of(2022, 7, 22, 0, 0, 0);
-        memberRepository.save(Member.builder().name("name").picture("picture").email("email").role(Role.USER).build());
+        memberRepository.save(Member.builder().name("name").picture("picture").email("email")
+                .role(Role.USER).region(Region.Seoul).build());
 
         List<Member> memberList = memberRepository.findAll();
 
