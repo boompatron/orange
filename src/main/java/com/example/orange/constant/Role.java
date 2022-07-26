@@ -1,5 +1,5 @@
 package com.example.orange.constant;
 
 public enum Role {
-    USER, ADMIN
+    VISITOR, USER, ADMIN
 }
