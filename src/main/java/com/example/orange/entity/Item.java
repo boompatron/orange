@@ -1,6 +1,7 @@
 package com.example.orange.entity;
 
 import com.example.orange.constant.ItemStatus;
+import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 
@@ -28,4 +29,17 @@ public class Item extends BaseEntity{
     @Lob
     @Column
     private String itemDetail;
+
+    @Column
+    private boolean negotiable;
+
+    @Builder
+    public Item(String itemName, int price, ItemStatus itemStatus, String itemDetail, boolean negotiable){
+        this.itemDetail = itemDetail;
+        this.itemName = itemName;
+        this.price = price;
+        this.itemStatus = itemStatus;
+        this.negotiable = negotiable;
+    }
+
 }
