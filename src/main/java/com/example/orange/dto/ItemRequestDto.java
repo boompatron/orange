@@ -1,4 +1,4 @@
-package com.example.orange.entity;
+package com.example.orange.dto;
 
 import com.example.orange.constant.ItemStatus;
 import com.example.orange.constant.Negotiable;
@@ -6,40 +6,24 @@ import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 
-import javax.persistence.*;
+import javax.persistence.Column;
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
+import javax.persistence.Lob;
 
-@Entity
-@Table(name = "item")
 @Getter
 @NoArgsConstructor
-public class Item extends BaseEntity{
-    @Id
-    @Column(name = "item_id")
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
-
-    @Column(nullable = false)
+public class ItemRequestDto {
     private String author;
-
-    @Column(nullable = false, length = 50)
     private String itemName;
-
-    @Column(name = "price", nullable = false)
     private int price;
-
-    @Enumerated(EnumType.STRING)
     private ItemStatus itemStatus;
-
-    @Lob
-    @Column
     private String itemDetail;
-
-    @Enumerated(EnumType.STRING)
     private Negotiable negotiable;
 
     @Builder
-    public Item(String author, String itemName, int price, ItemStatus itemStatus,
-                String itemDetail, Negotiable negotiable){
+    public ItemRequestDto(String author, String itemDetail, String itemName,
+                           int price, ItemStatus itemStatus, Negotiable negotiable){
         this.author = author;
         this.itemDetail = itemDetail;
         this.itemName = itemName;
@@ -47,5 +31,4 @@ public class Item extends BaseEntity{
         this.itemStatus = itemStatus;
         this.negotiable = negotiable;
     }
-
 }
