@@ -2,6 +2,7 @@ package com.example.orange.entity;
 
 import com.example.orange.constant.ItemStatus;
 import com.example.orange.constant.Negotiable;
+import com.example.orange.service.ItemService;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -47,5 +48,10 @@ public class Item extends BaseEntity{
         this.itemStatus = itemStatus;
         this.negotiable = negotiable;
     }
-
+    public void update(int price, ItemStatus itemStatus, String itemDetail, Negotiable negotiable){
+        this.price = price;
+        this.itemStatus = itemStatus;
+        this.itemDetail = itemDetail;
+        this.negotiable = negotiable;
+    }
 }

@@ -2,6 +2,7 @@ package com.example.orange.dto;
 
 import com.example.orange.constant.ItemStatus;
 import com.example.orange.constant.Negotiable;
+import com.example.orange.entity.Item;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -25,5 +26,16 @@ public class ItemSaleRegisterRequestDto {
         this.price = price;
         this.itemStatus = itemStatus;
         this.negotiable = negotiable;
+    }
+
+    public Item toEntity(){
+        return Item.builder()
+                .author(author)
+                .itemDetail(itemDetail)
+                .itemName(itemName)
+                .itemStatus(itemStatus)
+                .negotiable(negotiable)
+                .price(price)
+                .build();
     }
 }
