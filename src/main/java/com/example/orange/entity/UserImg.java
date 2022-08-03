@@ -9,7 +9,7 @@ import javax.persistence.*;
 @Getter
 @Table(name = "user_image")
 @NoArgsConstructor
-public class UserImage {
+public class UserImg {
     @Id
     @Column
     @GeneratedValue(strategy = GenerationType.IDENTITY)

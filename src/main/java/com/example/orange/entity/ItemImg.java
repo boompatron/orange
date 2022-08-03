@@ -2,7 +2,6 @@ package com.example.orange.entity;
 
 import lombok.Getter;
 import lombok.NoArgsConstructor;
-import org.springframework.data.annotation.TypeAlias;
 
 import javax.persistence.*;
 
@@ -10,7 +9,7 @@ import javax.persistence.*;
 @Getter
 @Table(name = "item_image")
 @NoArgsConstructor
-public class ItemImage {
+public class ItemImg {
     @Id @Column(nullable = false)
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
