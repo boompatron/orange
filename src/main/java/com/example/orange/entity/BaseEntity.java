@@ -1,8 +1,6 @@
 package com.example.orange.entity;
 
-import com.fasterxml.jackson.databind.ser.Serializers;
 import lombok.Getter;
-import lombok.Setter;
 import org.springframework.data.annotation.CreatedBy;
 import org.springframework.data.annotation.LastModifiedBy;
 import org.springframework.data.jpa.domain.support.AuditingEntityListener;
@@ -12,9 +10,9 @@ import javax.persistence.EntityListeners;
 import javax.persistence.MappedSuperclass;
 
 @Getter
-@EntityListeners(AuditingEntityListener.class)
 @MappedSuperclass
-public abstract class BaseEntity extends BaseTimeEntity {
+@EntityListeners(AuditingEntityListener.class)
+public abstract class BaseEntity extends BaseTimeEntity{
     @CreatedBy
     @Column(updatable = false)
     private String createdBy;
