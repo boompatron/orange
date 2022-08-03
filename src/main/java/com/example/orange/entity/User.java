@@ -4,6 +4,7 @@ import com.example.orange.constant.Role;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
+import org.springframework.util.Assert;
 
 import javax.persistence.*;
 
@@ -18,16 +19,17 @@ public class User extends BaseTimeEntity{
     @Column(nullable = false)
     private String email;
 
-    @Column(nullable = false)
+    @Column
     private String password;
 
     @Column
     private String username;
 
     @Enumerated(EnumType.STRING)
+    @Column(nullable = false)
     private Role role;
 
-    @Column
+    @Column(nullable = false)
     private String name;
 
     @Column
@@ -40,6 +42,10 @@ public class User extends BaseTimeEntity{
     @Builder
     public User(String email, String password, String username, Role role, String name, String phone_number
             , Location location){
+        Assert.hasText(email, "email must not be empty");
+        Assert.hasText(String.valueOf(role), "email must not be empty");
+        Assert.hasText(name, "email must not be empty");
+
         this.email = email;
         this.password = password;
         this.username = username;

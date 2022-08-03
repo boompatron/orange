@@ -3,6 +3,7 @@ package com.example.orange.entity;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
+import org.springframework.util.Assert;
 
 import javax.persistence.*;
 
@@ -18,10 +19,10 @@ public class Item extends BaseTimeEntity{
     @Lob
     private String description;
 
-    @Column
+    @Column(nullable = false)
     private String status;
 
-    @Column
+    @Column(nullable = false)
     private String title;
 
     @OneToOne(cascade = CascadeType.ALL)
@@ -38,6 +39,8 @@ public class Item extends BaseTimeEntity{
 
     @Builder
     public Item(String description, String status, String title, User user, Location location, Category category){
+        Assert.hasText(title, "title must not be empty");
+
         this.description = description;
         this.status = status;
         this.title = title;
