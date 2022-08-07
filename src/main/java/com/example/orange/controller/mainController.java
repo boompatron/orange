@@ -11,6 +11,12 @@ public class mainController {
     public String main(){
         return "aaa";
     }
+
+    @GetMapping(value = "/abc")
+    public String aaa(){
+        return "abc/def";
+    }
+
     @GetMapping(value = "/footer")
     public String footer(){
         return "fragments/footer";
