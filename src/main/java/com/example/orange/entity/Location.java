@@ -1,5 +1,6 @@
 package com.example.orange.entity;
 
+import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 
@@ -22,4 +23,11 @@ public class Location {
 
     @Column(length = 10)
     private String Lee_Dong;
+
+    @Builder
+    public Location(String Do, String Gu_Si, String Lee_Dong){
+        this.Do = Do;
+        this.Gu_Si = Gu_Si;
+        this.Lee_Dong = Lee_Dong;
+    }
 }
